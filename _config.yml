@@ -64,7 +64,7 @@ plugins:
 ############################
 
 # Name of website
-title: Inflationary FLows Project 
+title: Dynamic Compression Flows for Neuroscience Data
 
 # Your name to show in the footer
 author: Daniela de Albuquerque 
@@ -76,9 +76,8 @@ author: Daniela de Albuquerque
 navbar-links:
   About Me: "aboutme"
   Resources: 
-  - Project Repo: "https://github.com/dannyfa/Inflationary_Flows"
-  - Manuscript: "https://openreview.net/pdf?id=IM4LtYRWdE"
-  - CoSyNe 2024: "https://www.youtube.com/watch?v=5m8FWzZ_ZAc&list=PLWAzLum_3a1_qEfcl4Wrh3p7Qsjr2jIX4&index=2"
+  - Project Repo: "https://github.com/dannyfa/Velocity_Flow_Matching/tree/nlb_dataloader"
+  - Manuscript: "https://www.biorxiv.org/content/10.64898/2026.02.12.705535v1"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
   #  - Learn markdown: "https://www.markdowntutorial.com/"
@@ -91,7 +90,7 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "https://sites.duke.edu/ifsprojectassets/files/2024/07/cool_cat-icon.jpeg"
+avatar: "https://sites.duke.edu/ifsprojectassets/files/2026/05/babyseal.jpeg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
@@ -108,7 +107,7 @@ round-avatar: true
 # You can change the order that they show up on the page by changing the order here.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "daniela.de.albuquerque@duke.edu"
+  email: "danyfa@me.com"
   #rss: true  # remove this line if you don't want to show an RSS link at the bottom
   #facebook: deanattali
   github: dannyfa
@@ -158,7 +157,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "InflationaryFlows.com"
+url-pretty: "DynamicCompressionFlows.com"
 
 # Add the website title to the title of every page
 title-on-all-pages: true
