@@ -5,8 +5,6 @@ subtitle:
 mathjax: true
 ---
 
-### 1. Some quick background
-
 <!--- Still Need to Set up Refs Correctly here!  --->
 
 <div style="text-align: center;">
