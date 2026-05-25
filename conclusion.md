@@ -4,8 +4,11 @@ title: Conclusion
 subtitle: 
 mathjax: true
 ---
-
-<!--- Add refs to tables, figures, sections --->
+<!--- 
+TO DO's 
+Add links to refs/bib
+Cross-ref figs, tables, sections 
+--->
 
 Accurate, reproducible methods for understanding and mapping high-dimensional neural dynamics and behavior remain one of the most pressing needs in systems neuroscience. Here, using a flow-matching approach, we combine the strengths of both "mapping" approaches to dimensionality reduction, which assume i.i.d. data, and "dynamical" approaches that focus on the relationships between successive time points. By learning a pair of vector fields, one for compressing data, one for dynamics, we reduce dimensionality while preserving temporal structure. This is made possible by two key innovations: First, rather than specify a simple source distribution like an isotropic Gaussian, we implicitly fit this distribution by learning an encoder (data coupling). Second, we train using Nested Dropout, which allows us to produce an ensemble of true low-dimensional latent spaces. Just as importantly, we have constructed a model that is identifiable up to signs, with the result that our learned latent space is reproducible across training runs.
 

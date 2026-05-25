@@ -5,12 +5,16 @@ subtitle:
 mathjax: true
 ---
 
-<!--- Still Need to Set up Refs Correctly here!  --->
+<!--- 
+TO DO's
+Add links to all cites/refs in here!
+Related work will not be included in website -- too much text!! 
+ --->
 
 <div style="text-align: center;">
 <figure>
     <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/DCF_concept.pdf" alt="schematic"> 
-    <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 1: Dynamic Compression Flow Schematic.</strong> Dynamical data \( \mathbf{x}_t \) at \( \tau=1 \) with dynamics defined by \( \mathbf{v}_{\boldsymbol{\theta}} \) are mapped to a lower-dimensional compressed representation (\( \tau=0 \)) via a compressive/generative flow \( \mathbf{u}_{\boldsymbol{\phi}} \). Both \( \mathbf{u}_{\boldsymbol{\phi}} \) and \( \mathbf{v}_{\boldsymbol{\theta}} \) are trained via flow matching defined by an encoder/coupling \( \boldsymbol{\mu}_{\boldsymbol{\psi}} \).</font></figcaption> 
+    <figcaption style="text-align: justify;"><font size="+1"><strong>Figure 1: Dynamic Compression Flow Schematic.</strong> Dynamical data \( \mathbf{x}_t \) at \( \tau=1 \) with dynamics defined by \( \mathbf{v}_{\boldsymbol{\theta}} \) are mapped to a lower-dimensional compressed representation (\( \tau=0 \)) via a compressive/generative flow \( \mathbf{u}_{\boldsymbol{\phi}} \). Both \( \mathbf{u}_{\boldsymbol{\phi}} \) and \( \mathbf{v}_{\boldsymbol{\theta}} \) are trained via flow matching defined by an encoder/coupling \( \boldsymbol{\mu}_{\boldsymbol{\psi}} \).</font></figcaption> 
 </figure>
 </div>
 

@@ -5,8 +5,9 @@ subtitle:
 mathjax: true
 ---
 <!--- 
-Needs refs
-Needs to pass extra ball experiments (App) to experiments Page!! 
+TO DO's 
+Add links to refs/bib
+Cross-ref figs, tables, sections 
 --->
 
 Our model comprises both the parameters \\( (\mathbf{b}, \mathbf{L}, \mathbf{D}, \boldsymbol{\psi}) \\) of the encoder (Equation 1, Section 2.2) and of the compression and dynamical flows \\( (\boldsymbol{\phi}, \boldsymbol{\psi}) \\). The goal is to minimize flow matching losses for both \\( \mathbf{u}\_{\boldsymbol{\phi}} \\) and \\( \mathbf{v}\_{\boldsymbol{\psi}} \\) while minimizing the dimensionality of the source distribution. 

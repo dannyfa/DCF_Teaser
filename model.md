@@ -5,8 +5,9 @@ subtitle:
 mathjax: true
 ---
 <!--- 
-Needs refs
-Needs proper reference to ND Section/Page 
+TO DO's 
+Add links to refs/bib
+Cross-ref figs, tables, sections 
 --->
 ### 2.1 Notation 
 
