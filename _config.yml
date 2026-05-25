@@ -74,9 +74,9 @@ author: Daniela de Albuquerque
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  About : "aboutme"
   Resources: 
-  - Project Repo: "https://github.com/dannyfa/Velocity_Flow_Matching/tree/nlb_dataloader"
+  - Project Repo: "https://github.com/dannyfa/Velocity_Flow_Matching/tree/cleaned"
   - Manuscript: "https://www.biorxiv.org/content/10.64898/2026.02.12.705535v1"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"

@@ -38,30 +38,28 @@ subtitle: Who came up with this cool project?
 </style>
 
 <div class="article-container">
-  <h2 class="centered-title">Daniela de Albuquerque</h2>
+  <h2 class="centered-title">Ganchao Wei</h2>
   <div class="content-text">
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/Grad_DukeGardens-scaled.jpg" alt="Profile" class="circle-image">
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/ganchao_john_sq.jpg" alt="Profile" class="circle-image">
     <p>
-    I completed my MD-PhD training at Duke University and pursued my PhD in  Electrical and Computer Engineering at <a href="https://pearsonlab.github.io/about.html"> John Pearson's lab</a>. From a research standpoint, I am interested in developing new deep generative models tailored towards addressing specific problems in neuroscience and biomedical research. Clinically, I will be pursuing my diagnostic radiology residency training at the University of Washington (Seattle) and am super excited to continue to merge my interests in diagnostic imaging and machine learning/AI! To learn a bit more about my other projects, please visit my <a href="https://dannyfa.github.io"> personal website</a>. 
+    Ganchao plays around with stats / ML / AI, mainly motivated by and applied to neuroscience. He is currently into deep generative models (diffusion-/flow-based) and causal representation learning.
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     </p>
   </div>
 </div>
 
 <div class="article-container">
-  <h2 class="centered-title">Ganchao Wei</h2>
+  <h2 class="centered-title">Daniela de Albuquerque</h2>
   <div class="content-text">
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/Ganchao.jpg" alt="Profile" class="circle-image">
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/Grad_DukeGardens-scaled.jpg" alt="Profile" class="circle-image">
     <p>
-    Ganchao's personal blurb!
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    I completed my MD-PhD training at Duke University and pursued my PhD in  Electrical and Computer Engineering at <a href="https://pearsonlab.github.io/about.html"> John Pearson's lab</a>. From a research standpoint, I am interested in developing new deep generative models tailored towards addressing specific problems in neuroscience and biomedical research. Clinically, I will be pursuing my diagnostic radiology residency training at the University of Washington (Seattle) and am super excited to continue to merge my interests in diagnostic imaging and machine learning/AI! To learn a bit more about my other projects, please visit my <a href="https://dannyfa.github.io"> personal website</a>. 
     </p>
   </div>
 </div>
@@ -82,7 +80,6 @@ subtitle: Who came up with this cool project?
     <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/shiyang.jpg" alt="Profile" class="circle-image">
     <p>
     Shiyang is a graduate student in Electrical & Computer Engineering at Duke. She received her Bsc in Applied Mathematics from University of Liverpool and Xi'an Jiaotong-Liverpool University. Her research focuses on developing computational models and real-time methods to understand the activity of large-scale neural populations. When not doing research she enjoys music, reading, and creative writing.
-    <br/>
     <br/>
     <br/>
     <br/>
