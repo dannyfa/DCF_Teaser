@@ -10,7 +10,6 @@ TO DO's
 
 - Add musal animations (instead of extra static figures)
 - Link additional balls experiment figures 
-- Cross ref everything 
 
 --->
 
@@ -21,7 +20,7 @@ We obtain the flowed data representation \\( \{\tilde{\mathbf{x}}^{(\tau)}\_t\} 
 
 At \\( \tau=0 \\), we map compressed states to encoder-normalized latent coordinates via \\( \boldsymbol{\tilde{\mu}}\_t=(\mathbf{L}\mathbf{D}^{1/2})^{-1}\left(\mathbf{\tilde{x}}^{(0)}\_t-\mathbf{b}\right) \\) and visualize the first three coordinates, which are the most important under nested-dropout ordering. We also project velocities by using \\( \boldsymbol{\dot{\tilde{\mu}}}\_t=(\mathbf{L}\mathbf{D}^{1/2})^{-1}\mathbf{\dot{\tilde{x}}}^{(0)}\_t \\), and plotting dynamical velocities at the start of each step (\\( s=0 \\) in Equation 4, Section 2.4). 
 
-Experiment train times and parameter choices as well as trajectory roll-out time estimates can be found in the Appendix (Sections B,C respectively) of our manuscript. Links to manuscript, repo, and bird data used in some of our audio experiments are listed under "Resources".
+Experiment train times and parameter choices as well as trajectory roll-out time estimates can be found in the Appendix (Sections B,C respectively) of our manuscript. Links to manuscript, repo, and bird (audio) data are listed under "Resources".
 
 ### 4.1 Simulated Data
 
@@ -40,7 +39,7 @@ We use no dynamical history. That is, \\( h=0 \\) for \\( \mathbf{x}\_{\mathrm{h
 </div>
 
 We set nested dropout to \\( K\sim\mathrm{Geom}(p) \\) with \\( p=1/50 \\), so that \\( K\_{\mathrm{target}}=\mathbb{E}(K)=50 \\) can provide a generous latent budget.
-With no additional penalty on \\( \mathbf{D} \\), the fitted scales \\( \{d\_i\} \\) decay rapidly (first column of <strong>Figure 4A</strong>).
+With no additional penalty on \\( \mathbf{D} \\), the fitted scales \\( \{d\_i\} \\) decay rapidly (first column of <strong>Figure S1</strong>, Appendix A of manuscript).
 
 We define the <i>effective dimension</i> as the smallest \\( K \\) such that \\( \sum\_{i=1}^{K} d\_i \geq 0.95\sum\_{i=1}^{D} d\_i \\), which yields \\( K\_{\mathrm{eff}}=30 \\) in this run.
 As expected (<strong>Figure 3A</strong>), simulated frames in data space (\\( \tau=1 \\)) track the ground-truth ball location over time, while the corresponding rollouts in compressed space ( \\( \tau=0 \\), embedded in image space) provide a nearly identical image.
@@ -56,9 +55,9 @@ As expected (<strong>Figure 3A</strong>), simulated frames in data space (\\( \t
 </figure>
 </div>
 
-Moreover, the simulated latent trajectory in the first three coordinates of \\( \boldsymbol{\tilde{\mu}} \\) forms a smooth closed loop (<strong>Figure 3B</strong>), consistent with the underlying periodic motion. In further experiments imposing additional shrinkage on \\( \mathbf{D} \\) (<strong> Figures 4, 5 </strong>), we found that inferred dynamics and latent spaces were <i>reproducible</i> across runs. This is expected given that our model produces <i>identifiable</i> representations by construction, with additional cross-run stability checks in <strong>Figure XX</strong>.
+Moreover, the simulated latent trajectory in the first three coordinates of \\( \boldsymbol{\tilde{\mu}} \\) forms a smooth closed loop (<strong>Figure 3B</strong>), consistent with the underlying periodic motion. In further experiments imposing additional shrinkage on \\( \mathbf{D} \\) (<strong>Figure 4</strong>; <strong>Figure S1</strong>, Appendix A of manuscript), we found that inferred dynamics and latent spaces were <i>reproducible</i> across runs. This is expected given that our model produces <i>identifiable</i> representations by construction, with additional cross-run stability checks in <strong>Figure 8</strong>.
 
-For these and subsequent experiments (cf. Sections 4.2-4.4) we compare DCF against several other competing approaches, namely VAEs \cite{Kingma_Welling_2014, Rezende_Mohamed_Wierstra_2014}, MARBLE \cite{Gosztolai_Peach_Arnaudon_Barahona_Vandergheynst_2025}, LFADS \cite{pandarinath2018inferring}, DMD \cite{kutz2016dynamic}, T-PHATE \cite{busch2023multi}, and CEBRA \cite{schneider2023learnable}. For larger datasets, we could only train T-PHATE, which needs to load everything into memory, on a subset of data. Results for these models on the balls dataset are shown in <strong>Figure XX</strong>. Surprisingly, several of these models struggled to identify a simple, low-dimensional manifold underlying the data.
+For these and subsequent experiments (cf. Sections 4.2-4.4) we compare DCF against several other competing approaches, namely VAEs ([Kingma & Welling, 2014](https://pure.uva.nl/ws/files/2511146/162970_1312.6114v10.pd.pdf); [Rezende et al., 2014](https://proceedings.mlr.press/v32/rezende14.html)), MARBLE ([Gosztolai et al., 2025](https://www.nature.com/articles/s41592-024-02582-2)), LFADS ([Pandarinath et al., 2018](https://www.nature.com/articles/s41592-018-0109-9)), DMD ([Kutz et al., 2016](https://epubs.siam.org/doi/book/10.1137/1.9781611974508)), T-PHATE ([Busch et al., 2023](https://www.nature.com/articles/s43588-023-00419-0)), and CEBRA ([Schneider et al., 2023](https://www.nature.com/articles/s41586-023-06031-6)). For larger datasets, we could only train T-PHATE, which needs to load everything into memory, on a subset of data. Results for these models on the balls dataset are shown in <strong>Figure 5</strong>. Surprisingly, several of these models struggled to identify a simple, low-dimensional manifold underlying the data.
 
 <div style="text-align: center;">
 <figure>
@@ -70,9 +69,9 @@ For these and subsequent experiments (cf. Sections 4.2-4.4) we compare DCF again
 
 ### 4.2 Neural Data
 
-We evaluated DCF on a dataset comprising population neural activity from a center-out reach task performed by nonhuman primates \citep[592 training trials, 197 held-out test trials;][]{PeiYe2021NeuralLatents}.
+We evaluated DCF on a dataset comprising population neural activity from a center-out reach task performed by nonhuman primates (592 training trials, 197 held-out test trials; [Pei et al., 2021](https://arxiv.org/abs/2109.04463)).
 Each trial's data consisted of smoothed spike counts from 137 neurons over 100 time steps.
-All methods in <strong>Table XX</strong> used the same train/test split and neural time window, with cursor velocity used only afterward for downstream linear decoding.
+All methods in <strong>Table 1</strong> used the same train/test split and neural time window, with cursor velocity used only afterward for downstream linear decoding.
 
 <table style="border:1px solid black; margin-left:auto;margin-right:auto;table-layout:auto">
   <tr>
@@ -120,7 +119,7 @@ We use a lag-10 dynamical history (\\( h=10 \\)) and nested dropout \\( p=1/50 \
 </figure>
 </div>
 
-As expected, most latent models, including DCF, learned a well-organized latent space in which neural dynamics corresponding to distinct reach targets organized topographically (<strong>Figure XX</strong>). Quantification on a velocity prediction task using these latent spaces (<strong>Table XX</strong>) shows that DCF outperforms other models, despite falling well short of larger, prediction-focused approaches \citep[e.g.,][]{azabou2023unified}. Additionally, our model achieves higher reconstruction quality of neural activity (i.e., firing rates) on held-out data (<strong>Table XX</strong>). Consistent with latent identifiability up to sign, DCF also recovers stable target-organized 3D latent geometry across five random seeds, whereas LFADS and CEBRA show lower seed-to-seed consistency (<strong>Figure XX</strong>).
+As expected, most latent models, including DCF, learned a well-organized latent space in which neural dynamics corresponding to distinct reach targets organized topographically (<strong>Figure 6</strong>). Quantification on a velocity prediction task using these latent spaces (<strong>Table 1</strong>) shows that DCF outperforms other models, despite falling well short of larger, prediction-focused approaches (e.g.,[Azabou et al., 2023](https://arxiv.org/abs/2310.16046)). Additionally, our model achieves higher reconstruction quality of neural activity (i.e., firing rates) on held-out data (<strong>Table 2</strong>). Consistent with latent identifiability up to sign, DCF also recovers stable target-organized 3D latent geometry across five random seeds, whereas LFADS and CEBRA show lower seed-to-seed consistency (<strong>Figure 8</strong>).
 
 <table style="border:1px solid black; margin-left:auto;margin-right:auto;table-layout:auto">
   <tr>
@@ -144,13 +143,13 @@ As expected, most latent models, including DCF, learned a well-organized latent 
 
 ### 4.3 Video Data 
 
-We next applied DCF to a well-studied behavioral video dataset \cite{musall2019single}, which consists of a single long video with \\( 71{,}942 \\) frames of size \\( 64\times 64 \\). These are challenging data for most dimension reduction methods, since most parts of the frame are highly static, with only intermittent bursts of activity.
+We next applied DCF to a well-studied behavioral video dataset ([Musall et al., 2019](https://www.nature.com/articles/s41593-019-0502-4)), which consists of a single long video with \\( 71{,}942 \\) frames of size \\( 64\times 64 \\). These are challenging data for most dimension reduction methods, since most parts of the frame are highly static, with only intermittent bursts of activity.
 Here, since we focus on inference, we did not use a train/test split and do not report long-horizon trajectory rollouts.
 Both flows were parameterized by 4-level convolutional encoder-decoders (U-Net style) with channel widths \\( \{32,64,128,256\} \\) and a 256-dimensional bottleneck embedding.
 We fit the model with nested dropout \\( p=1/50 \\) and no history (\\( h=0 \\)), yielding an effective dimension \\( K\_{\mathrm{eff}}=30 \\).
 Since the behavior is highly repetitive, we visualized only the first 1,438 frames (about \\( 2\% \\) of the video), which is sufficient to capture the latent structure.
 
-The latent structure forms four prominent bands in 3D latent space (<strong>Figure XX</strong>), separated primarily along \\( (\mu\_1,\mu\_2) \\) while sharing a common within-band axis \\( \mu\_3 \\).
+The latent structure forms four prominent bands in 3D latent space (<strong>Figure 7A</strong>), separated primarily along \\( (\mu\_1,\mu\_2) \\) while sharing a common within-band axis \\( \mu\_3 \\).
 
 <div style="text-align: center;">
 <figure>
@@ -162,9 +161,9 @@ The latent structure forms four prominent bands in 3D latent space (<strong>Figu
 </figure>
 </div>
 
-Within each band, lower values of \\( \mu\_3 \\) correspond to stronger mouth movement, while higher \\( \mu\_3 \\) is more quiescent (<strong>Figure XX</strong>).
-Across bands, the mean appearance is broadly similar, but each band captures a slightly different baseline visual state, reflected by systematic mean shifts and variability patterns (<strong>Figure XX </strong>).
-Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure XX </strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figures XX, XX </strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure XX </strong>).
+Within each band, lower values of \\( \mu\_3 \\) correspond to stronger mouth movement, while higher \\( \mu\_3 \\) is more quiescent (<strong>Figure 7A,B</strong>).
+Across bands, the mean appearance is broadly similar, but each band captures a slightly different baseline visual state, reflected by systematic mean shifts and variability patterns (<strong>Figure 7B</strong>).
+Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure 7C</strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figure 7D</strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure 8</strong>).
 
 <div style="text-align: center;">
 <figure>
@@ -179,11 +178,9 @@ Moreover, outliers selected by maximal latent distance or maximal velocity magni
 ### 4.4 Audio Data
 
 Lastly, we evaluated DCF on a birdsong dataset (262 training trials, 66 test trials) converted to 26 \\( 64\times 64 \\) sequential spectrograms.
-We used the same convolutional architectures as in the video experiment, and the encoder feature map \\( \boldsymbol{\mu}\_{\boldsymbol{\psi}}(\mathbf{x}) \\) was a convolutional VAE with the same multiscale schedule.
+We used the same convolutional architectures as in the video experiment, and the encoder feature map \\( \boldsymbol{\mu}\_{\boldsymbol{\psi}}(\mathbf{x}) \\) was a convolutional VAE with the same multiscale schedule. We fit the model with nested dropout \\( p=1/50 \\) and no history (\\( h=0 \\)), evaluating simulated rollouts.
 
-We fit the model with nested dropout \\( p=1/50 \\) and no history (\\( h=0 \\)), evaluating simulated rollouts.
-
-On training trials, DCF rollouts preserved the syllable-level structure of the motif and reproduced the major time-frequency energy patterns across successive syllables (<strong>Figure XX </strong>).
+On training trials, DCF rollouts preserved the syllable-level structure of the motif and reproduced the major time-frequency energy patterns across successive syllables (<strong>Figure 9</strong>).
 
 <div style="text-align: center;">
 <figure>
@@ -194,7 +191,7 @@ On training trials, DCF rollouts preserved the syllable-level structure of the m
 </figure>
 </div>
 
-In the learned 3D latent coordinates, simulated trajectories concentrate on a low-dimensional curved manifold, and transitions between syllables align with regions of larger latent velocity magnitude (<strong>Figure XX </strong>). 
+In the learned 3D latent coordinates, simulated trajectories concentrate on a low-dimensional curved manifold, and transitions between syllables align with regions of larger latent velocity magnitude (<strong>Figure 9</strong>). 
 
 <div style="text-align: center;">
 <figure>
@@ -204,12 +201,12 @@ In the learned 3D latent coordinates, simulated trajectories concentrate on a lo
 </figure>
 </div>
 
-On held-out trials, the same latent geometry is retained and the decoded rollouts remain qualitatively consistent with the ground-truth spectrograms, indicating that the learned dynamics generalize beyond the training set (<strong>Figure XX </strong>). This is in contrast to typical VAE-based approaches \cite{goffinet2021low,sainburg2020finding}, which preserve structure at the syllable level while failing to smoothly capture dynamics (<strong>Figure XX </strong>).
+On held-out trials, the same latent geometry is retained and the decoded rollouts remain qualitatively consistent with the ground-truth spectrograms, indicating that the learned dynamics generalize beyond the training set (<strong>Figure 10</strong>). This is in contrast to typical VAE-based approaches ([Goffinet et al., 2021](https://elifesciences.org/articles/67855); [Sainburg et al., 2020](https://pubmed.ncbi.nlm.nih.gov/33057332/)), which preserve structure at the syllable level while failing to smoothly capture dynamics (<strong>Figure 11</strong>).
 
 <div style="text-align: center;">
 <figure>
     <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/bird_app_vae_v3.jpg" alt="schematic"> 
-    <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 11: Comparison embeddings using a 3d VAE. </strong> Left: simulated trajectories from a DCF model (cp. <strong>Figure XXC</strong>). Middle: embeddings of a VAE trained using 100 ms long spectrogram windows. Right: embeddings of a VAE trained using 20ms long spectrogram windows. In general, VAEs with short data windows produce latent spaces with disorganized temporal structure, while longer data windows exhibit more obvious structure but more variability than DCF.</font></figcaption> 
+    <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 11: Comparison embeddings using a 3d VAE. </strong> Left: simulated trajectories from a DCF model (cp. <strong>Figure 9C</strong>). Middle: embeddings of a VAE trained using 100 ms long spectrogram windows. Right: embeddings of a VAE trained using 20ms long spectrogram windows. In general, VAEs with short data windows produce latent spaces with disorganized temporal structure, while longer data windows exhibit more obvious structure but more variability than DCF.</font></figcaption> 
 </figure>
 </div>
 

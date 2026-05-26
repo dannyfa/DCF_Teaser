@@ -4,20 +4,15 @@ title: Training
 subtitle: 
 mathjax: true
 ---
-<!--- 
-TO DO's 
-Add links to refs/bib
-Cross-ref figs, tables, sections 
---->
 
 Our model comprises both the parameters \\( (\mathbf{b}, \mathbf{L}, \mathbf{D}, \boldsymbol{\psi}) \\) of the encoder (Equation 1, Section 2.2) and of the compression and dynamical flows \\( (\boldsymbol{\phi}, \boldsymbol{\psi}) \\). The goal is to minimize flow matching losses for both \\( \mathbf{u}\_{\boldsymbol{\phi}} \\) and \\( \mathbf{v}\_{\boldsymbol{\psi}} \\) while minimizing the dimensionality of the source distribution. 
 
-One potential approach to minimizing this latent dimensionality would be to shrink the diagonal scales \\( \{d_i\} \\) using, e.g.,  standard regularizers (ridge, LASSO) \cite{hoerl1970ridge,tibshirani1996lasso} or global-local shrinkage such as the horseshoe \cite{carvalho2010horseshoe}.
+One potential approach to minimizing this latent dimensionality would be to shrink the diagonal scales \\( \{d_i\} \\) using, e.g.,  standard regularizers (ridge, LASSO) ([Hoerl & Kennard, 1970](https://homepages.math.uic.edu/~lreyzin/papers/ridge.pdf); [Tibshirani, 1996](https://academic.oup.com/jrsssb/article/58/1/267/7027929)) or global-local shrinkage such as the horseshoe ([Carvalho et al., 2010](https://proceedings.mlr.press/v5/carvalho09a/carvalho09a.pdf)).
 However, we found that even for very severe shrinkage, the generative power of flow matching models is able to compensate nearly down to machine precision, encoding significant information in "unused" dimensions. As a result, such "soft" minimization approaches fail to provide meaningful limits on the dimensionality of source representations. An alternative, which we describe below, is to introduce stochastic sampling over source dimensionality, averaging over the size of this bottleneck during training.
 
 ### 3.1 Nested Dropout and Encoder Training 
 
-Nested dropout (ND) \cite{rippel_2014_nesteddropout} addresses two key issues previously noted: (1) the need to break permutation invariance among the entries of \\( \mathbf{D} \\) to ensure identifiability; and (2) the requirement of a true low-dimensional source representation. ND addresses these by randomly sampling the rank of \\( \mathbf{D} \\) in a way that enforces an ordering on latent coordinates. More specifically, at each forward pass, it samples a prefix length \\( K\sim \mathrm{Geom}(p) \\), with \\( \mathbb{E}(K)=1/p \\). This makes \\( 1/p \\) an effective latent dimensionality, and marginalizing over \\( K \\) provides control over the capacity of the source representation. In practice, we further truncate \\( K \\)  to \\( [1,D] \\), then apply the prefix mask
+Nested dropout (ND) ([Rippel et al., 2014](https://proceedings.mlr.press/v32/rippel14.html)) addresses two key issues previously noted: (1) the need to break permutation invariance among the entries of \\( \mathbf{D} \\) to ensure identifiability; and (2) the requirement of a true low-dimensional source representation. ND addresses these by randomly sampling the rank of \\( \mathbf{D} \\) in a way that enforces an ordering on latent coordinates. More specifically, at each forward pass, it samples a prefix length \\( K\sim \mathrm{Geom}(p) \\), with \\( \mathbb{E}(K)=1/p \\). This makes \\( 1/p \\) an effective latent dimensionality, and marginalizing over \\( K \\) provides control over the capacity of the source representation. In practice, we further truncate \\( K \\)  to \\( [1,D] \\), then apply the prefix mask:
 
 $$
 \begin{equation}
@@ -47,13 +42,13 @@ We train the compressive flow and dynamical flow using conditional flow matching
 
 
 #### Compressive FLow Matching
-Sample \\( \tau\sim \mathrm{Unif}[0,1] \\) and form \\( \mathbf{x}\_t^{(\tau)} \\) via Equation3, Section 2.3. For the linear bridge, the target conditional flow is constant, 
+Sample \\( \tau\sim \mathrm{Unif}[0,1] \\) and form \\( \mathbf{x}\_t^{(\tau)} \\) via Equation 3, Section 2.3. For the linear bridge, the target conditional flow is constant, 
 
 $$
 \mathbf{u}_t^\star = \partial_\tau \mathbf{x}_t^{(\tau)} = \mathbf{x}_t^{(1)} - \mathbf{x}_t^{(0)}
 $$
 
-As in \cite{lipman_etal_2024_tutorial}, we minimize
+As in [Lipman et al., 2024](https://scontent-iad3-1.xx.fbcdn.net/v/t39.2365-6/469963300_2320719918292896_7950025307614718519_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_N3PbClkPhkQ7kNvwE-mo0h&_nc_oc=Adq4hrL3iK8mJ5OkzwIf7P2uhv9FXL39usAm41r4x9kv27go5e0xjYxo7T-34vFEh4E&_nc_zt=14&_nc_ht=scontent-iad3-1.xx&_nc_gid=e8ejCUnovmgUL_EoA2nVOA&_nc_ss=7b289&oh=00_Af4iq3Tgl3lu4AsyZouPvkZSww64w1C6AlXJzPSKisFlfg&oe=6A1B7582), we minimize
 
 $$
 \begin{equation}
