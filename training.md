@@ -24,7 +24,7 @@ $$
 \mathbf{m}_K(i)=\mathbf{1}\{i\le K\},\qquad 
 \boldsymbol{\mu}^{(K)}_{\boldsymbol{\psi}}(\mathbf{x})=\mathbf{m}_K\odot \boldsymbol{\mu}_{\boldsymbol{\psi}}(\mathbf{x}),
 \label{eqn:nd_mask}
-\end{equation}\tag{5}
+\end{equation}
 $$
 
 with \\( \boldsymbol{\mu}^{(K)}\_{\boldsymbol{\psi}} \\) replacing \\( \boldsymbol{\mu}\_{\boldsymbol{\psi}} \\) in Equation 1 (Section 2.2).
@@ -36,7 +36,7 @@ $$
 \begin{equation}
 \mathcal{L}_{\mathrm{align}}=\mathbb{E}_{\mathbf{x}}\mathbb{E}_K\Big[\|\mathbf{x}_t^{(1)}-\mathbf{x}_t^{(0, K)}\|_2^2\Big],
 \label{eqn:L_align}    
-\end{equation}\tag{6}
+\end{equation}
 $$
 
 where \\( \mathbf{x}\_t^{(0, K)}=\mathbf{b}+\mathbf{LD}^{1/2}\boldsymbol{\mu}^{(K)}\_{\boldsymbol{\psi}}(\mathbf{x}_t^{(1)}) \\) is the masked encoder output as in Equation \\( \eqref{eqn:nd_mask} \\).
@@ -58,7 +58,7 @@ As in \cite{lipman_etal_2024_tutorial}, we minimize
 $$
 \begin{equation}
 \mathcal{L}_{\mathrm{cf}} = \mathbb{E}_{\mathbf{x}}\mathbb{E}_\tau\Big[\|\mathbf{u}_{\boldsymbol{\phi}}(\mathbf{x}_t^{(\tau)},\tau)-\mathbf{u}_t^\star\|_2^2\Big].
-\label{eqn:L_cf}\tag{7}
+\label{eqn:L_cf}
 \end{equation}
 $$
 
@@ -77,7 +77,7 @@ and we minimize
 $$
 \begin{equation}
     \mathcal{L}_{\mathrm{df}} = \mathbb{E}_{\mathbf{x}}\mathbb{E}_{\tau, s}\Big[\|\mathbf{v}_{\boldsymbol{\theta}}(\mathbf{x}_{t}^{(\tau)},\tau,s,\mathbf{x}_{\mathrm{hist}}^{(\tau)})-\mathbf{v}_{k,\tau}^\star\|_2^2\Big].
-    \label{eqn:L_df}\tag{8}
+    \label{eqn:L_df}
 \end{equation}
 $$
 
@@ -90,7 +90,7 @@ $$
 = \alpha\,\mathcal{L}_{\mathrm{cf}}
 + \beta\,\mathcal{L}_{\mathrm{df}}
 + \eta\,\mathcal{L}_{\mathrm{align}}.
-\label{eqn:L_tot}\tag{9}
+\label{eqn:L_tot}
 \end{equation}
 $$
 

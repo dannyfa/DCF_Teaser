@@ -32,7 +32,7 @@ We use no dynamical history. That is, \\( h=0 \\) for \\( \mathbf{x}\_{\mathrm{h
 
 <div style="text-align: center;">
 <figure>
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/ball_main_horizontal_website.pdf" alt="schematic"> 
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/ball_main_website-scaled.jpg" alt="schematic"> 
     <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 3: Rotating-ball simulation.</strong> <strong>Left:</strong> We simulated 10 videos of a ball moving counterclockwise (50 frames, \( 28\times 28 \)) and trained DCF with nested dropout (\( p=\frac{1}{50} \)) and no history (\( h=0 \)).
     (<strong>A</strong>) Ground-truth frames (top) and rollouts decoded in data space (middle, \( \tau=1 \)), with the corresponding simulated states in compressed space (bottom, \( \tau=0 \)), shown at \( t\in\{0,5,10,15,20\} \).
     (<strong>B</strong>) Simulated trajectories visualized in the first three coordinates of the latent space. Colored points correspond to frames in (<strong>A</strong>).</font></figcaption> 
@@ -154,7 +154,7 @@ The latent structure forms four prominent bands in 3D latent space (<strong>Figu
 
 <div style="text-align: center;">
 <figure>
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/musal_main_comparison.pdf" alt="schematic"> 
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/musal_main_comparison-scaled.jpg" alt="schematic"> 
     <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 7: Latent structure in behavioral video.  </strong> <strong>Left:</strong>  (<strong>A</strong>) Flowed latent structure forms four prominent bands (colored points), with outliers marked by maximal latent distance (brown \( \times \)) and maximal velocity magnitude (cyan \( \times \)).
     (<strong>B</strong>) Representative snapshots along each band (top/mid/low in \( \mu_3 \)). Lowering \( \mu_3 \) corresponds to stronger mouth movement, paw lift, or both. 
     (<strong>C</strong>) Outlier frames selected by maximal latent distance (left) or maximal velocity magnitude (right), correspond to transient paw and controller movements.
@@ -187,7 +187,7 @@ On training trials, DCF rollouts preserved the syllable-level structure of the m
 
 <div style="text-align: center;">
 <figure>
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/bird_main_horizontal_website.pdf" alt="schematic"> 
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/bird_main_website-scaled.jpg" alt="schematic"> 
     <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 9: DCF captures birdsong latent dynamics. </strong> (<strong>A</strong>) Example motif with syllables A--D, shown as ground-truth spectrogram frames (top), <i>simulated</i> rollouts decoded in data space (middle, \( \tau=1 \)), and compressed space (bottom, \( \tau=0 \)).
     (<strong>B</strong>) Projected latent velocity field from simulated rollouts in the first three latent coordinates, with arrows normalized to unit length and color indicating velocity magnitude.
     (<strong>C</strong>) Simulated latent trajectories in the same 3D space, with one representative rollout highlighted and colored by time.</font></figcaption> 

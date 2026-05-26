@@ -22,7 +22,7 @@ $$
 \begin{equation}
 \mathbf{x}_t^{(0)}=\mathbf{b}+\mathbf{LD}^{1/2}\cdot \boldsymbol{\mu}_{\boldsymbol{\psi}}\left(\mathbf{x}_t^{(1)}\right),
 \label{eqn:encoder}
-\end{equation} \tag{1}
+\end{equation} 
 $$
 
 where \\( \mathbf{b}\in\mathbb{R}^{D} \\) is a bias term,
@@ -41,7 +41,7 @@ $$
 \big[\boldsymbol{\mu}_{\boldsymbol{\psi}}(\mathbf{x})\big]_i = \frac{\big[\boldsymbol{\mu}^{\mathrm{raw}}_{\boldsymbol{\psi}}(\mathbf{x})\big]_i - m_i}{\sigma_i}, 
 \qquad i=1,\ldots,D, 
 \label{eqn:mu_norm}
-\end{equation} \tag{2}
+\end{equation}
 $$
 
 where \\( \mathbf{m}\in\mathbb{R}^{D} \\) and \\( \boldsymbol{\sigma}\in\mathbb{R}^{D} \\) are the running (EMA) estimates of the coordinate-wise mean and standard deviation of the \\( \boldsymbol{\mu}^{\mathrm{raw}}\_{\boldsymbol{\psi}}(\mathbf{x}) \\), respectively. 
@@ -59,7 +59,7 @@ $$
 \begin{equation}
  \mathbf{x}_t^{(\tau)} = (1-\tau)\,\mathbf{x}_t^{(0)} + \tau\,\mathbf{x}_t^{(1)},
  \label{eqn:tau_bridge}
-\end{equation} \tag{3}
+\end{equation}
 $$
 
 and learn a compression velocity field
@@ -82,7 +82,7 @@ Unlike the compressive flow bridge Equation \\( \eqref{eqn:tau_bridge} \\), the 
 $$
 \begin{equation}
     \mathbf{x}_{t}^{(\tau)} = (1-s)\,\mathbf{x}_{k\Delta t}^{(\tau)} + s\,\mathbf{x}_{(k+1)\Delta t}^{(\tau)}.
-    \label{eqn:t_bridge}\tag{4}
+    \label{eqn:t_bridge}
 \end{equation}
 $$
 
@@ -99,7 +99,7 @@ Here, in addition to the bridge variables \\( \tau \\) and \\( s \\), we have al
 
 <div style="text-align: center;">
 <figure>
-    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/interpolation.pdf" alt="schematic"> 
+    <img src="https://sites.duke.edu/ifsprojectassets/files/2026/05/interpolation_scheme.jpg" alt="schematic"> 
     <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 2: Interpolation scheme for the conditional dynamic flow Equation \( \eqref{eqn:t_bridge} \) with \( k=0 \). </strong> For \( \tau, t \in [0, 1]\), intermediate points are first interpolated in the compressive (\( \tau \)) dimension for each data sample using Equation \( \eqref{eqn:tau_bridge} \) (green lines), then along the dynamical (\( t \)) dimension (blue line). The encoder \( \boldsymbol{\mu}_{\boldsymbol{\psi}} \) (red line) maps points in the data space (\( \tau=1 \)) to points in source space (\( \tau=0 \)).</font></figcaption> 
 </figure>
 </div>
