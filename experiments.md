@@ -157,13 +157,13 @@ The latent structure forms four prominent bands in 3D latent space (<strong>Figu
     <figcaption style="text-align: justify;"><font size="+0.5"><strong>Figure 7: Latent structure in behavioral video.  </strong> <strong>Left:</strong>  (<strong>A</strong>) Flowed latent structure forms four prominent bands (colored points), with outliers marked by maximal latent distance (brown \( \times \)) and maximal velocity magnitude (cyan \( \times \)).
     (<strong>B</strong>) Representative snapshots along each band (top/mid/low in \( \mu_3 \)). Lowering \( \mu_3 \) corresponds to stronger mouth movement, paw lift, or both. 
     (<strong>C</strong>) Outlier frames selected by maximal latent distance (left) or maximal velocity magnitude (right), correspond to transient paw and controller movements.
-    (<strong>D</strong>) 3D Latent representations from comparison models. Most either collapse the four bands or fail to capture outliers. See <strong>our supplemental videos </strong> for additional details on structure identified by our model and comparisons against competing approaches.</font></figcaption> 
+    (<strong>D</strong>) 3D Latent representations from comparison models. Most either collapse the four bands or fail to capture outliers.</font></figcaption> 
 </figure>
 </div>
 
 Within each band, lower values of \\( \mu\_3 \\) correspond to stronger mouth movement, while higher \\( \mu\_3 \\) is more quiescent (<strong>Figure 7A,B</strong>).
 Across bands, the mean appearance is broadly similar, but each band captures a slightly different baseline visual state, reflected by systematic mean shifts and variability patterns (<strong>Figure 7B</strong>).
-Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure 7C</strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figure 7D</strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure 8</strong>).
+Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure 7C</strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figure 7D</strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure 8</strong>). For additional details on latent structure identified by our model and comparisons against competing approaches, see our supplemental [videos]({% link musall_supp_videos.md %}).
 
 <div style="text-align: center;">
 <figure>
