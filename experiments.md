@@ -24,7 +24,7 @@ Experiment train times and parameter choices as well as trajectory roll-out time
 
 ### 4.1 Simulated Data
 
-To test the ability of DCF to extract low-dimensional dynamics from high-dimensional data, we simulate \\( 10 \\) short videos of a ball moving counterclockwise (<strong>Figure 3</strong>). Each video comprises \\( 50 \\) time steps, with each frame being a \\( 28\times 28 \\) grayscale image.
+To test the ability of DCF to extract low-dimensional dynamics from high-dimensional data, we simulate \\( 10 \\) short videos of a ball moving clockwise (<strong>Figure 3</strong>). Each video comprises \\( 50 \\) time steps, with each frame being a \\( 28\times 28 \\) grayscale image.
 Both the compressive flow \\( \mathbf{u}\_{\phi} \\) and the dynamical flow \\( \mathbf{v}\_{\theta} \\) are parameterized by 4-level convolutional encoder-decoders (U-Net style) with channel widths \\( \{32,64,128,256\} \\) and a 256-dimensional bottleneck embedding.
 The encoder feature map \\( \boldsymbol{\mu}\_{\boldsymbol{\psi}}(\mathbf{x}) \\) is a convolutional VAE with the same multiscale channel schedule.
 We use no dynamical history. That is, \\( h=0 \\) for \\( \mathbf{x}\_{\mathrm{hist}}^{(\tau)} \\) in Section 2.4.
@@ -42,7 +42,7 @@ We set nested dropout to \\( K\sim\mathrm{Geom}(p) \\) with \\( p=1/50 \\), so t
 With no additional penalty on \\( \mathbf{D} \\), the fitted scales \\( \{d\_i\} \\) decay rapidly (first column of <strong>Figure S1</strong>, Appendix A of manuscript).
 
 We define the <i>effective dimension</i> as the smallest \\( K \\) such that \\( \sum\_{i=1}^{K} d\_i \geq 0.95\sum\_{i=1}^{D} d\_i \\), which yields \\( K\_{\mathrm{eff}}=30 \\) in this run.
-As expected (<strong>Figure 3A</strong>), simulated frames in data space (\\( \tau=1 \\)) track the ground-truth ball location over time, while the corresponding rollouts in compressed space ( \\( \tau=0 \\), embedded in image space) provide a nearly identical image.
+As expected (<strong>Figure 3A, [supplemental videos]({% link musall_supp_videos.md %})</strong>), simulated frames in data space (\\( \tau=1 \\)) track the ground-truth ball location over time, while the corresponding rollouts in compressed space ( \\( \tau=0 \\), embedded in image space) provide a nearly identical image.
 
 <div style="text-align: center;">
 <figure>
@@ -55,7 +55,7 @@ As expected (<strong>Figure 3A</strong>), simulated frames in data space (\\( \t
 </figure>
 </div>
 
-Moreover, the simulated latent trajectory in the first three coordinates of \\( \boldsymbol{\tilde{\mu}} \\) forms a smooth closed loop (<strong>Figure 3B</strong>), consistent with the underlying periodic motion. In further experiments imposing additional shrinkage on \\( \mathbf{D} \\) (<strong>Figure 4</strong>; <strong>Figure S1</strong>, Appendix A of manuscript), we found that inferred dynamics and latent spaces were <i>reproducible</i> across runs. This is expected given that our model produces <i>identifiable</i> representations by construction, with additional cross-run stability checks in <strong>Figure 8</strong>.
+Moreover, the simulated latent trajectory in the first three coordinates of \\( \boldsymbol{\tilde{\mu}} \\) forms a smooth closed loop (<strong>Figure 3B, [supplemental videos]({% link musall_supp_videos.md %})</strong>), consistent with the underlying periodic motion. In further experiments imposing additional shrinkage on \\( \mathbf{D} \\) (<strong>Figure 4</strong>; <strong>Figure S1</strong>, Appendix A of manuscript), we found that inferred dynamics and latent spaces were <i>reproducible</i> across runs. This is expected given that our model produces <i>identifiable</i> representations by construction, with additional cross-run stability checks in <strong>Figure 8</strong>.
 
 For these and subsequent experiments (cf. Sections 4.2-4.4) we compare DCF against several other competing approaches, namely VAEs ([Kingma & Welling, 2014](https://pure.uva.nl/ws/files/2511146/162970_1312.6114v10.pd.pdf); [Rezende et al., 2014](https://proceedings.mlr.press/v32/rezende14.html)), MARBLE ([Gosztolai et al., 2025](https://www.nature.com/articles/s41592-024-02582-2)), LFADS ([Pandarinath et al., 2018](https://www.nature.com/articles/s41592-018-0109-9)), DMD ([Kutz et al., 2016](https://epubs.siam.org/doi/book/10.1137/1.9781611974508)), T-PHATE ([Busch et al., 2023](https://www.nature.com/articles/s43588-023-00419-0)), and CEBRA ([Schneider et al., 2023](https://www.nature.com/articles/s41586-023-06031-6)). For larger datasets, we could only train T-PHATE, which needs to load everything into memory, on a subset of data. Results for these models on the balls dataset are shown in <strong>Figure 5</strong>. Surprisingly, several of these models struggled to identify a simple, low-dimensional manifold underlying the data.
 
@@ -163,7 +163,7 @@ The latent structure forms four prominent bands in 3D latent space (<strong>Figu
 
 Within each band, lower values of \\( \mu\_3 \\) correspond to stronger mouth movement, while higher \\( \mu\_3 \\) is more quiescent (<strong>Figure 7A,B</strong>).
 Across bands, the mean appearance is broadly similar, but each band captures a slightly different baseline visual state, reflected by systematic mean shifts and variability patterns (<strong>Figure 7B</strong>).
-Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure 7C</strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figure 7D</strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure 8</strong>). For additional details on latent structure identified by our model and comparisons against competing approaches, see our supplemental [videos]({% link musall_supp_videos.md %}).
+Moreover, outliers selected by maximal latent distance or maximal velocity magnitude (<strong>Figure 7C</strong>) correspond to transient paw and controller movements. Importantly, this latent structure was not well captured by comparison models (<strong>Figure 7D</strong>), and the same four-band structure was recovered across five random seeds (<strong>Figure 8</strong>). For additional details on latent structure identified by our model and comparisons against competing approaches, see our [supplemental videos]({% link musall_supp_videos.md %}).
 
 <div style="text-align: center;">
 <figure>
@@ -180,7 +180,7 @@ Moreover, outliers selected by maximal latent distance or maximal velocity magni
 Lastly, we evaluated DCF on a birdsong dataset (262 training trials, 66 test trials) converted to 26 \\( 64\times 64 \\) sequential spectrograms.
 We used the same convolutional architectures as in the video experiment, and the encoder feature map \\( \boldsymbol{\mu}\_{\boldsymbol{\psi}}(\mathbf{x}) \\) was a convolutional VAE with the same multiscale schedule. We fit the model with nested dropout \\( p=1/50 \\) and no history (\\( h=0 \\)), evaluating simulated rollouts.
 
-On training trials, DCF rollouts preserved the syllable-level structure of the motif and reproduced the major time-frequency energy patterns across successive syllables (<strong>Figure 9</strong>).
+On training trials, DCF rollouts preserved the syllable-level structure of the motif and reproduced the major time-frequency energy patterns across successive syllables (<strong>Figure 9, [supplemental videos]({% link musall_supp_videos.md %})</strong>).
 
 <div style="text-align: center;">
 <figure>
@@ -191,7 +191,7 @@ On training trials, DCF rollouts preserved the syllable-level structure of the m
 </figure>
 </div>
 
-In the learned 3D latent coordinates, simulated trajectories concentrate on a low-dimensional curved manifold, and transitions between syllables align with regions of larger latent velocity magnitude (<strong>Figure 9</strong>). 
+In the learned 3D latent coordinates, simulated trajectories concentrate on a low-dimensional curved manifold, and transitions between syllables align with regions of larger latent velocity magnitude (<strong>Figure 9, [supplemental videos]({% link musall_supp_videos.md %})</strong>). 
 
 <div style="text-align: center;">
 <figure>
