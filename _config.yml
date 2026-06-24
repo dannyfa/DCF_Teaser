@@ -77,7 +77,7 @@ navbar-links:
   About : "aboutme"
   Resources: 
   - Project Repo: "https://github.com/dannyfa/Velocity_Flow_Matching/tree/cleaned"
-  - Manuscript: "https://www.biorxiv.org/content/10.64898/2026.02.12.705535v1"
+  - Manuscript: "https://www.biorxiv.org/content/10.64898/2026.02.12.705535v2"
   - Audio Data: "https://zenodo.org/records/20411580"
   #Resources:
   #  - Beautiful Jekyll: "https://beautifuljekyll.com"
